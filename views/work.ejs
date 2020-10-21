@@ -1,0 +1,19 @@
+<%- include("header.ejs") -%>
+    <div class="box" id="heading">
+        <h1><%= date %></h1>
+    </div>
+
+    <div class="box">  
+        <% for(var i =0; i < toDoWork.length; i++){ %>
+            <div class="item">
+                <input type="checkbox">
+                <p><%= toDoWork[i] %></p>
+            </div>
+        
+        <% } %>
+        <form action="/work" class="class" method="POST">
+            <input type="text" name="newTask" placeholder="New Task" autocomplete="off">
+            <button type="submit">+</button>
+        </form>
+    </div>
+<%- include("footer.ejs")-%>
