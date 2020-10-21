@@ -1,4 +1,5 @@
 let toDoLust = [];
+let toDoWorkList = [];
 
 module.exports = class Task {
     constructor(task){//сушность
@@ -12,5 +13,13 @@ module.exports = class Task {
     static fetchTasks(){
         return toDoLust;//возврат информации
     }
+    saveWork(){
+        toDoWorkList.push(this);//сохранить
+    }
+    
+    static fetchWorks(){
+        return toDoWorkList;//возврат информации
+    }
+
 
 }
