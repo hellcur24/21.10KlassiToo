@@ -14,5 +14,13 @@
     "express": "^4.17.1"
   },
   "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hellcur24/21.10KlassiToo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hellcur24/21.10KlassiToo/issues"
+  },
+  "homepage": "https://github.com/hellcur24/21.10KlassiToo#readme",
   "description": ""
 }

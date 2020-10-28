@@ -3,11 +3,15 @@ const Task = require('../models/task');
 //let toDoWork = [];
 
 exports.getMainPageWork = ("/work",(req,res)=>{
-    let weekday = date.getDate();
+    Task.fetchWorks(itemsWork=>{
+        let day = date.getDate();
+        res.render("work.ejs", {date: day, toDoWork: itemsWork});
+    });
+    /*let weekday = date.getDate();
     const itemsList = Task.fetchWorks();//fetchTasks - смотрит, чтобы там что-то было, и возвращае значение.
     /*let weekday = date.getWeekDay();
     console.log(day);*/
-    res.render("work.ejs", {date: weekday, toDoWork: itemsList});
+   /*res.render("work.ejs", {date: weekday, toDoWork: itemsList});*/
 });
 
 exports.postNewWork = (req, res)=>{
