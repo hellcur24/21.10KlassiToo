@@ -21,3 +21,9 @@ exports.postNewWork = (req, res)=>{
     toDoWork.push(newTask);*/
     res.redirect("/work");
 };
+exports.deletWorkItem = (req,res)=>{
+    console.log("Call from delete", req.body.workcheckbox);
+    Task.deletWorkItem(req.body.workcheckbox);
+    res.redirect('/work');
+
+}

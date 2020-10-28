@@ -5,11 +5,12 @@
 
     <div class="box">  
         <% for(var i =0; i < toDoItems.length; i++){ %>
-            <div class="item">
-                <input type="checkbox">
-                <p><%= toDoItems[i].description %></p><!--description - определяет что за объект-->
-            </div>
-        
+            <form action="/delete" method="POST">
+                <div class="item">
+                    <input name="checkbox" value="<%= toDoItems[i].description %>" type="checkbox" onchange="this.form.submit()"><!--oncchange отправляет запрос после нажатия на чекбокс-->
+                    <p><%= toDoItems[i].description %></p><!--description - определяет что за объект-->
+                </div>
+            </form>
         <% } %>
         <form action="/" class="class" method="POST">
             <input type="text" name="newTask" placeholder="New Task" autocomplete="off">

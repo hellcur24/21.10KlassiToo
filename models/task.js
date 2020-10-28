@@ -43,7 +43,7 @@ module.exports = class Task {
             callBack(JSON.parse(fileContent));
         });
     }
-    
+
     saveWork(){
         /*toDoWorkList.push(this);//сохранить*/
         fs.readFile(pathToRegularWorkFile,(error, fileContent)=>{
@@ -76,5 +76,47 @@ module.exports = class Task {
     });
     }
 
+    static deletItem(description){
+        fs.readFile(pathToRegularTaskFile,(error,fileContent)=>{
+            let tasks=[];
+            if (!error) {
+              tasks=JSON.parse(fileContent);
+               
+            }
+            for (let i = 0; i < tasks.length; i++) {
+                if(tasks[i].description === description){
+                    console.log(tasks[i].description," deleted");
+                    tasks.splice(i,1);//удаляет эелемент, i на каком индексе, 1 количество значений
+                    break;
+                }
+            }
+            fs.writeFile(pathToRegularTaskFile, JSON.stringify(tasks),(error)=>{
+                console.log("Error while trying to deleting", error);
+                
+            })
+        });
+
+    }
+    static deletWorkItem(description){
+        fs.readFile(pathToRegularWorkFile,(error,fileContent)=>{
+            let workTasks=[];
+            if (!error) {
+                workTasks=JSON.parse(fileContent);
+               
+            }
+            for (let i = 0; i < workTasks.length; i++) {
+                if(workTasks[i].description === description){
+                    console.log(workTasks[i].description," deleted");
+                    workTasks.splice(i,1);//удаляет эелемент, i на каком индексе, 1 количество значений
+                    break;
+                }
+            }
+            fs.writeFile(pathToRegularWorkFile, JSON.stringify(workTasks),(error)=>{
+                console.log("Error while trying to deleting", error);
+                
+            })
+        });
+
+    }
 
 }

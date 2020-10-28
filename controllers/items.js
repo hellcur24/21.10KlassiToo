@@ -23,7 +23,11 @@ exports.postNewItem = (req, res)=>{
 };
 
 
+exports.deletItem = (req,res)=>{
+    console.log("Call from delete", req.body.checkbox);
+    Task.deletItem(req.body.checkbox);
+    res.redirect('/');
 
-
+}
 
 
