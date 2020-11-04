@@ -7,7 +7,7 @@
         <% for(var i =0; i < toDoItems.length; i++){ %>
             <form action="/delete" method="POST">
                 <div class="item">
-                    <input name="checkbox" value="<%= toDoItems[i].description %>" type="checkbox" onchange="this.form.submit()"><!--oncchange отправляет запрос после нажатия на чекбокс-->
+                    <input name="checkbox" value="<%= toDoItems[i].id %>" type="checkbox" onchange="this.form.submit()"><!--oncchange отправляет запрос после нажатия на чекбокс-->
                     <p><%= toDoItems[i].description %></p><!--description - определяет что за объект-->
                 </div>
             </form>

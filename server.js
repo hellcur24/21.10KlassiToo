@@ -1,6 +1,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
+require('./models/db');//соединение с базой данных происходит раньше, чем происходит маршрутизация файлов
+
 const mainPage = require('./routes/main');
 const mainPageWork = require('./routes/work');
 const getError = require('./routes/404');
